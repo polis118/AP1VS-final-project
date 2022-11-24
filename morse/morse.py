@@ -1,6 +1,8 @@
 """Hlavní skript.
 
 Zde bude hlavni skript celeho projektu.
+
+Ke spuštění je nutné mít python 3.10 nebo vyšší. 
 """
 # slovnik s morseovou abecedou
 dictMorseovka = {
@@ -38,6 +40,7 @@ def inputText():
 
     return input("Zadejte text, který chcete zakódovat nebo dekódovat: \n----------------------------------------------------\n")
 
+# Hlavni spousteci podminka programu
 if __name__ == "__main__":
     """Hlavní spouštěcí podminka.
 
@@ -50,9 +53,8 @@ if __name__ == "__main__":
     Vystupem je zakodovany nebo dekodovany text.
     """
 
-    print("Tenhle skript slouží k zakódování nebo dekódování morseovky\n")
-    print("Zvolte, jestli chcete zakódovat nebo dekódovat text!\n----------------------------------------------------\n")
-    parse = input("1 -> Zakódovat\n2 -> Dekódovat\n")
+    print("\nTenhle skript slouží k zakódování nebo dekódování morseovky\n")
+    parse = input("Zvolte, jestli chcete zakódovat nebo dekódovat text!\n----------------------------------------------------\n1 -> Zakódovat\n2 -> Dekódovat\n")
 
     match parse:
         case "1":
