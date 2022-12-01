@@ -24,17 +24,33 @@ def zakodovat(text):
         if char != " ":
             morse = morse + dictMorseovka.get(char.lower()) + " "
         elif char == " ":
-            morse += " / "
+            morse += "/ "
     return morse
 
 
-def dekodovat(text):
+def dekodovat(morse):
     """Tahle funkce slouží k dekodovani.
     
     Text k funkci.
     """
 
+    text=""
+    key_list = list(dictMorseovka.keys())
+    val_list = list(dictMorseovka.values())
+    splited = morse.split(" / ")
+    print(splited)
+    a = False
+    for x in splited:
+        splited2 = x.split(" ")
+        if a is True:
+            text += " "
+        a = True
+        for y in splited2:
+            print(y)
+            position = val_list.index(y)
+            text += (key_list[position])
     return text
+
 
 def inputText():
     """Funkce k zadani textu.
