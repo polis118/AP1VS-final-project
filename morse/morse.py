@@ -10,17 +10,24 @@ dictMorseovka = {
     "ch": "----", "i": "..", "j": ".---", "k": "-.-", "l": ".-..", "m": "--", "n": "-.", "o": "---",
     "p": ".--.", "q": "--.-", "r": ".-.", "s": "...", "t": "-", "u": "..-", "v": "...-", "w": ".--",
     "x": "-..-", "y": "-.--", "z": "--..", "0": "-----", "1": ".----", "2": "..---", "3": "...--",
-    "4": "....-", "5": ".....", "6": "-....", "7": "--...", "8": "---..", "9": "----."
+    "4": "....-", "5": ".....", "6": "-....", "7": "--...", "8": "---..", "9": "----.", ",": "--..--"
 }
 
 
 def zakodovat(text):
     """Tahle funkce slouží k zakodovani.
-    
+
     Text k funkci.
     """
-
-    return text
+    morse = ""
+    for char in text:
+        if char != " ":
+            morse = morse + dictMorseovka.get(char.lower()) + " "
+        elif char == " ":
+            morse += " / "
+        else:
+            morse += " "
+    return morse
 
 
 def dekodovat(text):
