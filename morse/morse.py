@@ -18,7 +18,16 @@ def zakodovat(text):
     """Tahle funkce slouží k zakodovani.
 
     Text k funkci.
+
+    :param text: (string)
+
+    Sample usage:
+    >>> zakodovat("Ahoj")
+    '.- .... --- .--- '
     """
+
+    if type(text) not in [str]:
+        raise TypeError("Value must be string")
     morse = ""
     for char in text:
         if char != " ":
