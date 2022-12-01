@@ -25,8 +25,6 @@ def zakodovat(text):
             morse = morse + dictMorseovka.get(char.lower()) + " "
         elif char == " ":
             morse += " / "
-        else:
-            morse += " "
     return morse
 
 
