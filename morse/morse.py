@@ -41,13 +41,19 @@ def dekodovat(morse):
     """Tahle funkce slouží k dekodovani.
     
     Text k funkci.
-    """
 
+    :param text: (string)
+
+    Sample usage:
+    >>> dekodovat(".- .... --- .---")
+    'ahoj'
+    """
+    if type(morse) not in [str]:
+        raise TypeError("Value must be string")
     text=""
     key_list = list(dictMorseovka.keys())
     val_list = list(dictMorseovka.values())
     splited = morse.split(" / ")
-    print(splited)
     a = False
     for x in splited:
         splited2 = x.split(" ")
@@ -55,7 +61,6 @@ def dekodovat(morse):
             text += " "
         a = True
         for y in splited2:
-            print(y)
             position = val_list.index(y)
             text += (key_list[position])
     return text
