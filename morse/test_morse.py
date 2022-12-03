@@ -1,17 +1,34 @@
+"""Tohle je testovací skript.
+
+Tímhle skriptem se testuje skript morse.py
+"""
+
+
 import pytest
 from morse import zakodovat, dekodovat
 
+
 def test_morse():
-    assert zakodovat("Ahoj, tady Marek") == '.- .... --- .--- --..-- / - .- -.. -.-- / -- .- .-. . -.- '
-    assert zakodovat("Tohle je morseovka") == "- --- .... .-.. . / .--- . / -- --- .-. ... . --- ...- -.- .- "
-    assert dekodovat(".- .... --- .--- --..-- / - .- -.. -.-- / -- .- .-. . -.-") == 'ahoj, tady marek'
-    assert dekodovat("- --- .... .-.. . / .--- . / -- --- .-. ... . --- ...- -.- .-") == "tohle je morseovka"
+    """Tohle je testovací funkce.
+
+    Postupně se testuje jestli se text správně zakoduje do morseovky a naopak.
+    Poté dochází k testování datových typů.
+    """
+    morse1 = '.- .... --- .--- --..-- / - .- -.. -.-- / -- .- .-. . -.- '
+    morse2 = "- --- .... .-.. . / .--- . / -- --- .-. ... . --- ...- -.- .- "
+    text1 = 'ahoj, tady marek'
+    text2 = "tohle je morseovka"
+
+    assert zakodovat("Ahoj, tady Marek") == morse1
+    assert zakodovat("Tohle je morseovka") == morse2
+    assert dekodovat(morse1) == text1
+    assert dekodovat(morse2) == text2
 
     with pytest.raises(TypeError):
-        zakodovat(int(26-30<24))
+        zakodovat(int(26 - 30 < 24))
     with pytest.raises(TypeError):
         zakodovat(True)
     with pytest.raises(TypeError):
-        dekodovat(int(26-30<24))
+        dekodovat(int(26 - 30 < 24))
     with pytest.raises(TypeError):
         dekodovat(True)
