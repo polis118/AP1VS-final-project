@@ -16,13 +16,15 @@ def test_morse():
     """
     morse1 = '.- .... --- .--- --..-- / - .- -.. -.-- / -- .- .-. . -.- '
     morse2 = "- --- .... .-.. . / .--- . / -- --- .-. ... . --- ...- -.- .- "
+    morse3 = '.- .... --- .--- --..-- / - .- -.. -.-- / -- .- .-. . -.-'
+    morse4 = "- --- .... .-.. . / .--- . / -- --- .-. ... . --- ...- -.- .-"
     text1 = 'ahoj, tady marek'
     text2 = "tohle je morseovka"
 
     assert zakodovat("Ahoj, tady Marek") == morse1
     assert zakodovat("Tohle je morseovka") == morse2
-    assert dekodovat(morse1) == text1
-    assert dekodovat(morse2) == text2
+    assert dekodovat(morse3) == text1
+    assert dekodovat(morse4) == text2
 
     with pytest.raises(TypeError):
         zakodovat(int(26 - 30 < 24))
