@@ -1,6 +1,16 @@
+"""@file morse.py.
+
+@brief Prekladac morseovi abecedy.
+@author Matulik, Mede, Knapkova, Olexa.
+"""
+
 """Hlavní skript.
 
-Zde bude hlavni skript celeho projektu.
+Skript slouží ke kódování textu do morseovi abecedy
+a zase zpět. Po spuštění se vás skript zeptá,
+zda chcete text zakódovat nebo dekódovat.
+
+Po zadání skript vypíše zakódovaný nebo dek'dovaný kód.
 
 Ke spuštění je nutné mít python 3.10 nebo vyšší.
 """
@@ -22,13 +32,23 @@ dictMorseovka = {
 def zakodovat(text):
     """Tahle funkce slouží k zakodovani.
 
-    Text k funkci.
+    Tahle funkce pomocí cyklu vybírá ze stringu
+    jedno písmenko po druhém a hledá jej ve slovníku.
+
+    Pokud se v cyklu narazí na mezeru mezi slovy,
+    tak se zde vloží znak "/"
+
+    Je jedno, zda při zadávání vložíte velká nebo malá písmena.
+    Vždy se velká písmena převádí na malá.
 
     :param text: (string)
 
     Sample usage:
     >>> zakodovat("Ahoj")
     '.- .... --- .--- '
+
+    >>> zakodovat("Ahoj svete")
+    '.- .... --- .--- / ... ...- . - . '
     """
     if type(text) not in [str]:
         raise TypeError("Value must be string")
@@ -44,13 +64,30 @@ def zakodovat(text):
 def dekodovat(morse):
     """Tahle funkce slouží k dekodovani.
 
-    Text k funkci.
+    Tahle funkce slouží k dekódování morseovky na text.
+    Uživatel zadává zakódovaný text v morseově abecedě.
+
+    Tahle funkce si rozdělí slovník na "keys" a "values".
+    Poté se snaží rozdělit text na jednotlivá slova.
+    To pozná podle dělícího znaku "/"
+
+    Dále se zde nachází cyklus pro rozdělení na jednotlivá písmena
+    (Mezi písmeny v morseově abecedě se nachází mezera)
+    Zde se také nachází další cyklus pro překlad z morseovy abecedy.
+
+    Z listu, kde jsou vložena jednotlivá písmena, se postupně vybírají
+    a překládají.
+
+    Pokud je mezi slovy mezera, tak zde bude vložena.
 
     :param text: (string)
 
     Sample usage:
     >>> dekodovat(".- .... --- .---")
     'ahoj'
+
+    >>> dekodovat(".- .... --- .--- / ... ...- . - .")
+    'ahoj svete'
     """
     if type(morse) not in [str]:
         raise TypeError("Value must be string")
@@ -75,7 +112,7 @@ def inputText():
 
     Aby bylo možné ihned vyloučit jestli uživatel zadal správnou
     volbu při výběru kódování nebo dekódování, je potřeba žádat uživatele
-    o v stupní text později. Aby jsme se vyvyrovali duplicitnímu kódu,
+    o vstupní text později. Aby jsme se vyvyrovali duplicitnímu kódu,
     tak použijeme tuto funkci.
     """
     return input("Zadejte text, který chcete zakódovat nebo dekódovat: \n")
