@@ -5,7 +5,7 @@ Tímhle skriptem se testuje skript morse.py
 
 
 import pytest
-from morse import *
+from morse import zakodovat, dekodovat
 
 
 def test_morse():
