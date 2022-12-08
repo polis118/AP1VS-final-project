@@ -1,7 +1,4 @@
-"""@file morse.py.
-
-@brief Prekladac morseovi abecedy.
-@author Matulik, Mede, Knapkova, Olexa.
+"""Autoři: Matulik, Mede, Knapkova, Olexa.
 """
 
 """Hlavní skript.
