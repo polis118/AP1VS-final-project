@@ -1,4 +1,6 @@
-"""Autoři: Matulik, Mede, Knapkova, Olexa.
+"""Projekt: morse.py.
+
+Autoři: Matulik, Mede, Knapkova, Olexa.
 """
 
 """Hlavní skript.
